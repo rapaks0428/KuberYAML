@@ -1,0 +1,17 @@
+apiVersion: v1  #Wersja API v1 dla podów
+kind: Pod       #Co chcemy stworzyć
+metadata:               
+  name: strefakursow-app   #Nazwa Poda
+spec:
+  containers: #Tworzymy kontenery w Podzie
+  - name: ubuntu  #nazwa 1st kontenera
+    image: ubuntu:18.04 #Jaki obraz bedzie wykrzystany dla kontenera
+    command: [ "sleep", "inf" ]   #Usypiamy w nieskonczonosc aby ubuntu sie nie restartowalo
+  - name: nginx #nazwa 2nd kontenera
+    image: nginx:latest #Jaki obraz bedzie wykrzystany dla kontenera
+    ports:  #Porty wykorzystywane przez kontener
+      -  containerPort: 80
+  - name: httpd #nazwa 3rd kontenera
+    image: httpd:latest #Jaki obraz bedzie wykrzystany dla kontenera
+    ports:    #Porty wykorzystywane przez kontener
+      -  containerPort:80
