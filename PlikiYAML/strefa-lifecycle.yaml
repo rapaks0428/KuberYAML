@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: strefa-ubuntu-lifecycle
+spec:
+  containers:
+  - name: ubuntu
+    image: ubuntu:18.04
+    command: [ "sleep", "10" ]
+    #command: [ "/bin/sh", "-c" ] #Test restart OnFailure
+    #args: [ "sleep 5; exit 1" ]  #Test restart OnFailure
+  restartPolicy: OnFailure # RestartPolicy 1. Never 2. Always 3. OnFailure
