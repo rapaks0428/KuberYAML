@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: strefakursow-cron
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: strefa-pogoda-cron
+            image: ubuntu:18.04
+            command:
+            - "bin/bash"
+            - "-c"
+            - "apt update > /dev/null; apt install curl -y > /dev/null; curl -s https://wttr.in/Gliwice"
