@@ -1,22 +1,25 @@
-apiVersion: v1
-kind: ReplicationController
-metadata:
-  name: strefa-httpd-rc
-spec:
-  replicas: 4
-  selector:
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: strefa-kursow-deploy
+  labels:
     app: app-httpd
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: app-httpd
   template:
-    metadata: 
-      name: strefa-httpd-pod
+    metadata:
       labels:
         app: app-httpd
     spec:
       containers:
-      - name: strefa-cont-httpd
-        image: httpd
+      - name: strefa-httpd-deploy
+        image: httpd:latest
         ports:
-        -  containerPort: 80
+        - containerPort: 80
+        
 # kubectl set image deployment "nazwa_deploy"=httpd:2.4 --record=true (aby zmiany byly widoczne w describe)
 # kubectl rolling undo deployment "nazwa_deploy" (cofanie do poprzedniego deployu)
 # kubectl rolling history deployment "nazwa_deploy" (historia zmian deployu)
