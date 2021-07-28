@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: strefakursow-yt-pobieranie
+spec:
+  template:
+    metadata:
+      name: yt-pobieranie
+    spec:
+      containers:
+      - name: yt-download
+        image: wernight/youtube-dl
+        command: [ "youtube-dl", "https://www.youtube.com/watch?v=aWnxXjr_qgg" ] #youtube dl stara aktualizacja nie da sie pobrac pliku
+      restartPolicy: Never
