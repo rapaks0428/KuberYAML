@@ -21,7 +21,7 @@ spec:
         - containerPort: 80
         
 # kubectl set image deployment "nazwa_deploy"=httpd:2.4 --record=true (aby zmiany byly widoczne w describe)
-# kubectl rolling undo deployment "nazwa_deploy" (cofanie do poprzedniego deployu)
-# kubectl rolling history deployment "nazwa_deploy" (historia zmian deployu)
-# kubectl rolling status deployment "nazwa_deploy"  (status aktualnego deployu)
+# kubectl rollout undo deployment "nazwa_deploy" (cofanie do poprzedniego deployu)
+# kubectl rollout history deployment "nazwa_deploy" (historia zmian deployu)
+# kubectl rollout status deployment "nazwa_deploy"  (status aktualnego deployu)
 # kubectl scale --replicas="ilosc replik" deployment "nazwa_deploy" (skalowanie deploymentu)
