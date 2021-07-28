@@ -1,0 +1,20 @@
+apiVersion: apps/v1 # RS jest nowszy wieć ma inna wersje
+kind: ReplicaSet #jaki obiekt wykorzystujemy
+metadata:
+  name: strefa-httpd-rc
+spec:
+  replicas: 4
+  selector: 
+    matchLabels:
+      app: app-httpd
+  template:
+    metadata:
+      name: strefa-httpd-pod
+      labels:
+        app: app-httpd
+    spec:
+      containers:
+      - name: strefa-kontener-httpd
+        image: httpd:latest
+        ports:
+        -  containerPort: 80
