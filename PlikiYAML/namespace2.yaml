@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: from-file-strefakursow
+  name: strefakursow-deploy
+  labels:
+    app: app-httpd
+spec:
+  replicas: 6
+  selector: 
+    matchLabels:
+      app: app-httpd
+  template:
+    metadata:
+      labels:
+        app: app-httpd
+    spec:
+      containers:
+      - name: strefakursow-deploy
+        image: httpd:latest
+        ports:
+        - containerPort: 80
