@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: strefa-httpd-rc
+spec:
+  replicas: 4
+  selector:
+    app: app-httpd
+  template:
+    metadata: 
+      name: strefa-httpd-pod
+      labels:
+        app: app-httpd
+    spec:
+      containers:
+      - name: strefa-cont-httpd
+        image: httpd
+        ports:
+        -  containerPort: 80

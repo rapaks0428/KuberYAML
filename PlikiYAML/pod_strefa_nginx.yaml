@@ -6,3 +6,4 @@ spec: # co chcemy zrobic
   containers:  # chcemy kontener wiec lista opisuje 
   - name: strefa-nginx-container
     image: nginx:1.17
+    

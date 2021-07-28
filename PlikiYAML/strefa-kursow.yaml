@@ -14,4 +14,4 @@ spec:
   - name: httpd #nazwa 3rd kontenera
     image: httpd:latest #Jaki obraz bedzie wykrzystany dla kontenera
     ports:    #Porty wykorzystywane przez kontener
-      -  containerPort:80
+      -  containerPort: 8080
